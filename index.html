@@ -5,13 +5,13 @@
   </head>
   <body>
     <!----> <!----> 
-    <div id="header" class="px-2 py-3 mx-auto w-full md:px-24 lg:px-8 max-w-7xl">
+    <div id="header" class="header-class px-2 py-3 mx-auto w-full md:px-24 lg:px-8 max-w-7xl">
       <div class="relative flex grid items-center max-w-6xl grid-cols-2 mx-auto lg:grid-cols-3 bg-opacity-10">
         <a href="/" aria-label="Company" title="Company" class="inline-flex items-center lg:mx-auto">
           <img src="assets/logo.png" class="w-20">
         </a>
         <ul class="flex items-center hidden space-x-5 lg:flex">
-          <li><a href="#carousel" aria-label="Our gallery" title="Our gallery" class="font-medium tracking-wide text-gray-700 transition-colors duration-200">Gallery</a></li>
+          <li><a id="gallery-link" href="#carousel" aria-label="Our gallery" title="Our gallery" class="font-medium tracking-wide text-gray-700 transition-colors duration-200">Gallery</a></li>
           <li><a href="/" aria-label="Our product" title="Our story" class="font-medium tracking-wide text-gray-700 transition-colors duration-200">Our Story</a></li>
           <li><a href="/" aria-label="Our product" title="Our product" class="font-medium tracking-wide text-gray-700 transition-colors duration-200">Contact Us</a></li>
           <li><a href="/" aria-label="Our product" title="Our product" class="font-medium tracking-wide text-gray-700 transition-colors duration-200">Newsletter</a></li>
@@ -62,24 +62,24 @@
           Our Gallery
         </h2>
       </div>
-      <div id="carousel" class="flex space-x-4 overflow-x-auto mb-8 h-96 lg:h-auto">
-        <img src="assets/image-1.png" alt="" class="img-cover object-cover w-3/4 h-64 lg:h-auto rounded shadow-lg"> 
-        <img src="assets/image-2.png" alt="" class="img-cover object-cover w-3/4 h-64 lg:h-auto rounded shadow-lg"> 
-        <img src="assets/image-3.png" alt="" class="img-cover object-cover w-3/4 h-64 lg:h-auto rounded shadow-lg"> 
-        <img src="assets/image-4.png" alt="" class="img-cover object-cover w-3/4 h-64 lg:h-auto rounded shadow-lg">
-        <img src="assets/image-10.png" alt="" class="img-cover object-cover w-3/4 h-64 lg:h-auto rounded shadow-lg">
-        <img src="assets/image-12.png" alt="" class="img-cover object-cover w-3/4 h-64 lg:h-auto rounded shadow-lg">
+      <div class="flex space-x-4 overflow-x-auto mb-8 h-96 lg:h-auto">
+        <img src="assets/image-1.jpg" alt="" class="img-cover object-cover w-3/4 h-64 lg:h-auto rounded shadow-lg"> 
+        <img src="assets/image-2.jpg" alt="" class="img-cover object-cover w-3/4 h-64 lg:h-auto rounded shadow-lg"> 
+        <img src="assets/image-3.jpg" alt="" class="img-cover object-cover w-3/4 h-64 lg:h-auto rounded shadow-lg"> 
+        <img src="assets/image-4.jpg" alt="" class="img-cover object-cover w-3/4 h-64 lg:h-auto rounded shadow-lg">
+        <img src="assets/image-10.jpg" alt="" class="img-cover object-cover w-3/4 h-64 lg:h-auto rounded shadow-lg">
+        <img src="assets/image-12.jpg" alt="" class="img-cover object-cover w-3/4 h-64 lg:h-auto rounded shadow-lg">
       </div>
       <div id="carousel-rtl" class="flex space-x-4 overflow-x-auto mb-8 h-96 lg:h-auto">
-        <img src="assets/image-5.png" alt="" class="img-cover object-cover w-3/4 h-64 lg:h-auto rounded shadow-lg"> 
-        <img src="assets/image-6.png" alt="" class="img-cover object-cover w-3/4 h-64 lg:h-auto rounded shadow-lg"> 
-        <img src="assets/image-7.png" alt="" class="img-cover object-cover w-3/4 h-64 lg:h-auto rounded shadow-lg"> 
-        <img src="assets/image-8.png" alt="" class="img-cover object-cover w-3/4 h-64 lg:h-auto rounded shadow-lg">
-        <img src="assets/image-9.png" alt="" class="img-cover object-cover w-3/4 h-64 lg:h-auto rounded shadow-lg">
-        <img src="assets/image-11.png" alt="" class="img-cover object-cover w-3/4 h-64 lg:h-auto rounded shadow-lg">
-        <img src="assets/image-13.png" alt="" class="img-cover object-cover w-3/4 h-64 lg:h-auto rounded shadow-lg">
+        <img src="assets/image-5.jpg" alt="" class="img-cover object-cover w-3/4 h-64 lg:h-auto rounded shadow-lg"> 
+        <img src="assets/image-6.jpg" alt="" class="img-cover object-cover w-3/4 h-64 lg:h-auto rounded shadow-lg"> 
+        <img src="assets/image-7.jpg" alt="" class="img-cover object-cover w-3/4 h-64 lg:h-auto rounded shadow-lg"> 
+        <img src="assets/image-8.jpg" alt="" class="img-cover object-cover w-3/4 h-64 lg:h-auto rounded shadow-lg">
+        <img src="assets/image-9.jpg" alt="" class="img-cover object-cover w-3/4 h-64 lg:h-auto rounded shadow-lg">
+        <img src="assets/image-11.jpg" alt="" class="img-cover object-cover w-3/4 h-64 lg:h-auto rounded shadow-lg">
+        <img src="assets/image-13.jpg" alt="" class="img-cover object-cover w-3/4 h-64 lg:h-auto rounded shadow-lg">
       </div>
-      <div class="flex items-center sm:justify-center">
+      <div id="carousel" class="flex items-center sm:justify-center">
         <a href="/" class="share-a-pear inline-flex items-center justify-center h-12 px-6 mr-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md focus:shadow-outline focus:outline-none">
           Share a Pear
         </a>
@@ -111,7 +111,7 @@
           <div class="mb-16 lg:mb-0">
             <div class="max-w-xl mb-6">
               <h2 class="max-w-lg mb-6 font-sans text-5xl font-black tracking-tight text-gray-900 sm:text-6xl sm:leading-none">
-                The PearTree Project is a photo sharing community that values creativity and authenticity
+                The Pear Tree Project is a photo sharing community that values creativity and authenticity
               </h2>
             </div>
           </div>
@@ -192,8 +192,8 @@
       scroll-behavior: smooth;
     }
 
-    #header {
-      background-color: rgba(255, 255, 255, 0.5) !important;
+    body #header.header-class {
+      background-color: rgba(255, 255, 255, 0.233);
     }
 
     #carousel, #carousel-rtl {
@@ -205,7 +205,7 @@
     }
 
     .share-a-pear {
-      background-color: #F35800;
+      background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), #F35800;
       border: 1px solid #FF8B4A;
     }
     .share-a-pear:hover {
@@ -214,6 +214,11 @@
   </style>
 
 <script>
+
+  document.getElementById('gallery-link').addEventListener('click', function(event) {
+    event.preventDefault();
+    document.getElementById('carousel').scrollIntoView({ behavior: 'smooth' });
+  });
   const carousel = document.getElementById('carousel');
   let scrollInterval;
 
