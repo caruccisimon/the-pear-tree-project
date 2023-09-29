@@ -55,13 +55,13 @@
     </div>
     <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----><!----> <!----> <!----> 
     <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----><!----> <!----> <!----> 
-    <div id="carousel" class="px-4 py-16 mx-auto w-full md:px-24 lg:px-8 lg:py-20 bg-gray-100">
+    <div class="px-4 py-16 mx-auto w-full md:px-24 lg:px-8 lg:py-20 bg-gray-100">
       <div class="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
         <h2 class="max-w-lg mb-6 font-sans text-4xl font-bold leading-none tracking-tight text-gray-900 sm:text-5xl md:mx-auto">
           Our Gallery
         </h2>
       </div>
-      <div class="flex space-x-4 overflow-x-auto mb-8 h-96 lg:h-auto">
+      <div id="carousel" class="flex space-x-4 overflow-x-auto mb-8 h-96 lg:h-auto">
         <img src="assets/image-1.jpg" alt="" class="img-cover object-cover w-3/4 h-64 lg:h-auto rounded shadow-lg"> 
         <img src="assets/image-2.jpg" alt="" class="img-cover object-cover w-3/4 h-64 lg:h-auto rounded shadow-lg"> 
         <img src="assets/image-3.jpg" alt="" class="img-cover object-cover w-3/4 h-64 lg:h-auto rounded shadow-lg"> 
@@ -210,12 +210,11 @@
 
 <script>
 
-  document.getElementById('gallery-link').addEventListener('click', function(event) {
-    event.preventDefault();
-    document.getElementById('carousel').scrollIntoView({ behavior: 'smooth' });
-  });
+document.addEventListener("DOMContentLoaded", function() {
   const carousel = document.getElementById('carousel');
+  const carouselRtl = document.getElementById('carousel-rtl');
   let scrollInterval;
+  let scrollIntervalRtl;
 
   function startScrolling() {
     scrollInterval = setInterval(() => {
@@ -235,6 +234,35 @@
   carousel.addEventListener('mouseleave', startScrolling);
 
   startScrolling();
+
+  function startScrollingRtl() {
+    scrollIntervalRtl = setInterval(() => {
+      if (carouselRtl.scrollLeft !== 0) {
+        carouselRtl.scrollLeft -= 1;
+      } else {
+        carouselRtl.scrollLeft = carouselRtl.scrollWidth - carouselRtl.offsetWidth;
+      }
+    }, 30); // Adjust the speed by changing this value, lower is faster
+  }
+
+  function stopScrollingRtl() {
+    clearInterval(scrollIntervalRtl);
+  }
+
+  carouselRtl.addEventListener('mouseenter', stopScrollingRtl);
+  carouselRtl.addEventListener('mouseleave', startScrollingRtl);
+
+  startScrollingRtl();
+
+  document.getElementById('gallery-link').addEventListener('click', function(event) {
+    event.preventDefault();
+    stopScrolling();
+    stopScrollingRtl();
+    document.getElementById('carousel').scrollIntoView({ behavior: 'smooth' });
+    setTimeout(startScrolling, 1000); // Adjust the delay as needed
+    setTimeout(startScrollingRtl, 1000); // Adjust the delay as needed
+  });
+});
 
 </script>
 </html>
