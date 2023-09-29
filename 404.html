@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 Not Found</title>
+    <link href="https://unpkg.com/tailwindcss@2.0.2/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .center-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: calc(100vh - 60px); /* Adjust as needed */
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            font-size: 3em;
+        }
+    </style>
+</head>
+<body>
+    <nav class="px-2 py-3 mx-auto w-full md:px-24 lg:px-8 max-w-7xl" style="background-color: rgba(255, 255, 255, 0.5); position: sticky; top: 0;">
+      <div class="relative flex grid items-center max-w-6xl grid-cols-2 mx-auto lg:grid-cols-3 bg-opacity-10">
+        <a href="/" aria-label="Company" title="Company" class="inline-flex items-center lg:mx-auto">
+          <img src="assets/logo.png" class="w-20">
+        </a>
+        <div class="flex items-center hidden space-x-5 lg:flex">
+            <a id="gallery-link" href="#carousel" aria-label="Our gallery" title="Our gallery" class="font-medium tracking-wide text-gray-700 transition-colors duration-200">Gallery</a>
+            <a href="/" aria-label="Our product" title="Our story" class="font-medium tracking-wide text-gray-700 transition-colors duration-200">Our Story</a>
+            <a href="/" aria-label="Our product" title="Our product" class="font-medium tracking-wide text-gray-700 transition-colors duration-200">Contact Us</a>
+            <a href="/" aria-label="Our product" title="Our product" class="font-medium tracking-wide text-gray-700 transition-colors duration-200">Newsletter</a>
+        </div>
+        <div class="flex items-center hidden space-x-8 lg:flex ml-16">
+          <a href="/" aria-label="Sign up" title="Sign up" class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-purple-300 hover:bg-purple-400 focus:shadow-outline focus:outline-none">
+            Sign up
+          </a>
+        </div>
+      </div>
+    </nav>
+    <div class="center-content">
+        <div>
+            <h1>404</h1>
+            <p>Sorry, the page you are looking for could not be found.</p>
+            <a href="/">Go Home</a>
+        </div>
+    </div>
+</body>
+</html>
