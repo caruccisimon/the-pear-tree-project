@@ -1,12 +1,13 @@
 <html>
   <head>
     <link href="https://unpkg.com/tailwindcss@2.0.2/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/03e7517bdca86726f515c920a/fca17b1ed334a832e70cc08c3.js");</script>
   </head>
   <body>
     <!----> <!----> 
-    <nav class="px-2 py-3 mx-auto w-full md:px-24 lg:px-8 max-w-7xl" style="background-color: rgba(255, 255, 255, 0.5); position: sticky;">
-      <div class="relative flex grid items-center max-w-6xl grid-cols-2 mx-auto lg:grid-cols-3 bg-opacity-10">
+    <nav class="px-2 py-3 mx-auto w-full md:px-24 lg:px-8 max-w-7xl bg-opacity-10 -z-10">
+      <div class="relative flex grid items-center max-w-6xl grid-cols-2 mx-auto lg:grid-cols-3">
         <a href="/" aria-label="Company" title="Company" class="inline-flex items-center lg:mx-auto">
           <img src="assets/logo.png" class="w-20">
         </a>
@@ -111,7 +112,7 @@
         <div class="lg:grid lg:grid-cols-2 lg:gap-12">
           <div class="mb-16 lg:mb-0">
             <div class="max-w-xl mb-6">
-              <h2 class="max-w-lg mb-6 font-sans text-5xl font-black tracking-tight text-gray-900 sm:text-6xl sm:leading-none">
+              <h2 class="max-w-lg mb-6 font-sans text-4xl font-black tracking-tight text-gray-900 sm:text-5xl sm:leading-none">
                 The Pear Tree Project is a photo sharing community that values creativity and authenticity
               </h2>
             </div>
@@ -193,6 +194,10 @@
       scroll-behavior: smooth;
     }
 
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+
     #carousel, #carousel-rtl {
       scrollbar-width: none; /* For Firefox */
     }
@@ -237,12 +242,41 @@ document.addEventListener("DOMContentLoaded", function() {
 
   startScrolling();
 
+  let rtlScrollType = 'default';
+  if (window.CSS && CSS.supports('direction', 'rtl')) {
+    const div = document.createElement('div');
+    div.style.width = '1px';
+    div.style.height = '1px';
+    div.style.direction = 'rtl';
+    div.style.overflow = 'hidden';
+    div.style.visibility = 'hidden';
+    div.innerText = 'A';
+    document.body.appendChild(div);
+    if (div.scrollLeft > 0) {
+      rtlScrollType = 'negative';
+    } else {
+      div.scrollLeft = 1;
+      if (div.scrollLeft === 0) {
+        rtlScrollType = 'reverse';
+      }
+    }
+    document.body.removeChild(div);
+  }
+
   function startScrollingRtl() {
     scrollIntervalRtl = setInterval(() => {
-      if (carouselRtl.scrollLeft !== 0) {
-        carouselRtl.scrollLeft -= 1;
+      if (rtlScrollType === 'negative') {
+        if (carouselRtl.scrollLeft !== 0) {
+          carouselRtl.scrollLeft -= 1;
+        } else {
+          carouselRtl.scrollLeft = carouselRtl.scrollWidth - carouselRtl.offsetWidth;
+        }
       } else {
-        carouselRtl.scrollLeft = carouselRtl.scrollWidth - carouselRtl.offsetWidth;
+        if (carouselRtl.scrollLeft !== (carouselRtl.scrollWidth - carouselRtl.offsetWidth)) {
+          carouselRtl.scrollLeft += 1;
+        } else {
+          carouselRtl.scrollLeft = 0;
+        }
       }
     }, 30); // Adjust the speed by changing this value, lower is faster
   }
