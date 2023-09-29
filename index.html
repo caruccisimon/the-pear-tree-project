@@ -5,23 +5,22 @@
   </head>
   <body>
     <!----> <!----> 
-    <div id="header" class="header-class px-2 py-3 mx-auto w-full md:px-24 lg:px-8 max-w-7xl">
+    <nav class="px-2 py-3 mx-auto w-full md:px-24 lg:px-8 max-w-7xl" style="background-color: rgba(255, 255, 255, 0.5); position: sticky;">
       <div class="relative flex grid items-center max-w-6xl grid-cols-2 mx-auto lg:grid-cols-3 bg-opacity-10">
         <a href="/" aria-label="Company" title="Company" class="inline-flex items-center lg:mx-auto">
           <img src="assets/logo.png" class="w-20">
         </a>
-        <ul class="flex items-center hidden space-x-5 lg:flex">
-          <li><a id="gallery-link" href="#carousel" aria-label="Our gallery" title="Our gallery" class="font-medium tracking-wide text-gray-700 transition-colors duration-200">Gallery</a></li>
-          <li><a href="/" aria-label="Our product" title="Our story" class="font-medium tracking-wide text-gray-700 transition-colors duration-200">Our Story</a></li>
-          <li><a href="/" aria-label="Our product" title="Our product" class="font-medium tracking-wide text-gray-700 transition-colors duration-200">Contact Us</a></li>
-          <li><a href="/" aria-label="Our product" title="Our product" class="font-medium tracking-wide text-gray-700 transition-colors duration-200">Newsletter</a></li>
-        </ul>
-        <ul class="flex items-center hidden space-x-8 lg:flex ml-16">
-          <li class="lg:ml-8"><a href="/" aria-label="Sign up" title="Sign up" class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-purple-300 hover:bg-purple-400 focus:shadow-outline focus:outline-none">
+        <div class="flex items-center hidden space-x-5 lg:flex">
+          <a id="gallery-link" href="#carousel" aria-label="Our gallery" title="Our gallery" class="font-medium tracking-wide text-gray-700 transition-colors duration-200">Gallery</a>
+          <a href="/" aria-label="Our product" title="Our story" class="font-medium tracking-wide text-gray-700 transition-colors duration-200">Our Story</a>
+          <a href="/" aria-label="Our product" title="Our product" class="font-medium tracking-wide text-gray-700 transition-colors duration-200">Contact Us</a>
+          <a href="/" aria-label="Our product" title="Our product" class="font-medium tracking-wide text-gray-700 transition-colors duration-200">Newsletter</a>
+        </div>
+        <div class="flex items-center hidden space-x-8 lg:flex ml-16">
+          <a href="/" aria-label="Sign up" title="Sign up" class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-purple-300 hover:bg-purple-400 focus:shadow-outline focus:outline-none">
             Sign up
-            </a>
-          </li>
-        </ul>
+          </a>
+        </div>
         <div class="ml-auto lg:hidden">
           <button aria-label="Open Menu" title="Open Menu" class="p-2 -mr-1 transition duration-200 rounded focus:outline-none focus:shadow-outline hover:bg-deep-purple-50 focus:bg-deep-purple-50">
             <svg viewBox="0 0 24 24" class="w-5 text-gray-600">
@@ -32,7 +31,7 @@
           </button>
         </div>
       </div>
-    </div>
+    </nav>
     <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!---->
     <div class="relative w-full">
       <img src="assets/cover.png" alt="" class="absolute inset-0 object-cover w-full h-full"> 
@@ -56,7 +55,7 @@
     </div>
     <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----><!----> <!----> <!----> 
     <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----><!----> <!----> <!----> 
-    <div class="px-4 py-16 mx-auto w-full md:px-24 lg:px-8 lg:py-20 bg-gray-100">
+    <div id="carousel" class="px-4 py-16 mx-auto w-full md:px-24 lg:px-8 lg:py-20 bg-gray-100">
       <div class="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
         <h2 class="max-w-lg mb-6 font-sans text-4xl font-bold leading-none tracking-tight text-gray-900 sm:text-5xl md:mx-auto">
           Our Gallery
@@ -79,7 +78,7 @@
         <img src="assets/image-11.jpg" alt="" class="img-cover object-cover w-3/4 h-64 lg:h-auto rounded shadow-lg">
         <img src="assets/image-13.jpg" alt="" class="img-cover object-cover w-3/4 h-64 lg:h-auto rounded shadow-lg">
       </div>
-      <div id="carousel" class="flex items-center sm:justify-center">
+      <div class="flex items-center sm:justify-center">
         <a href="/" class="share-a-pear inline-flex items-center justify-center h-12 px-6 mr-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md focus:shadow-outline focus:outline-none">
           Share a Pear
         </a>
@@ -192,10 +191,6 @@
       scroll-behavior: smooth;
     }
 
-    body #header.header-class {
-      background-color: rgba(255, 255, 255, 0.233);
-    }
-
     #carousel, #carousel-rtl {
       scrollbar-width: none; /* For Firefox */
     }
@@ -241,26 +236,5 @@
 
   startScrolling();
 
-  const carouselRtl = document.getElementById('carousel-rtl');
-  let scrollIntervalRtl;
-
-  function startScrollingRtl() {
-    scrollIntervalRtl = setInterval(() => {
-      if (carouselRtl.scrollLeft !== 0) {
-        carouselRtl.scrollLeft -= 1;
-      } else {
-        carouselRtl.scrollLeft = carouselRtl.scrollWidth - carouselRtl.offsetWidth;
-      }
-    }, 30); // Adjust the speed by changing this value, lower is faster
-  }
-
-  function stopScrollingRtl() {
-    clearInterval(scrollIntervalRtl);
-  }
-
-  carouselRtl.addEventListener('mouseenter', stopScrollingRtl);
-  carouselRtl.addEventListener('mouseleave', startScrollingRtl);
-
-  startScrollingRtl();
 </script>
 </html>
